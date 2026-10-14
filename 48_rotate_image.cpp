@@ -12,18 +12,30 @@ public:
         arr.clear();
     }
     */
-    // Transposing a matrix 
     int n = matrix.size();
+    /*
+     Transposing a matrix -- Method 1:
+    
     for(int i = 0 ; i < n ; i++){
         vector<int> temp;
         for (int j = n - 1 ;j >= 0 ; j-- ){
             temp.emplace_back(matrix[j][i]);
             std::cout << matrix[j][i];
         }
-        //std::cout << temp;
         matrix.emplace_back(temp);
         temp.clear();
     }
     matrix.erase(matrix.begin(),matrix.begin() + n);
+    */
+    // Transpose the matrix by swapping across the main diagonal.
+    for (int row = 0; row < n; row++) {
+        for (int col = row + 1; col < n; col++) {
+            swap(matrix[row][col], matrix[col][row]);
+        }
+    }
+    // Reverse every row to complete the clockwise rotation.
+    for (int row = 0; row < n; row++) {
+        reverse(matrix[row].begin(), matrix[row].end());
+    }
     }
 };
