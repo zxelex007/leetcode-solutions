@@ -25,9 +25,5 @@ public:
         temp.clear();
     }
     matrix.erase(matrix.begin(),matrix.begin() + n);
-    // for (int i = 0; i <= n - 1 ; i++){
-    //     swap(matrix[i],matrix[n - 1]);
-    // }
-
     }
 };
